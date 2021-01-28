@@ -4,7 +4,7 @@ name: kube-web-view
 description: Kubernetes Web View
 home: https://kube-web-view.readthedocs.io/
 icon: https://codeberg.org/repo-avatars/1013-79c19f23d3617c23ec9f668a3c5fe0c5
-version: 0.0.1
+version: 0.0.2
 appVersion: 20.6.0
 dependencies:
 - name: nginx-ldapauth-proxy
