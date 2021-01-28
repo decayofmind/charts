@@ -1,0 +1,12 @@
+---
+apiVersion: v2
+name: kube-web-view
+description: Kubernetes Web View
+home: https://kube-web-view.readthedocs.io/
+version: 0.0.1
+appVersion: 20.6.0
+dependencies:
+- name: nginx-ldapauth-proxy
+  version: 0.1.4
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: nginx-ldapauth-proxy.enabled
