@@ -27,6 +27,29 @@ entries:
   kube-web-view:
   - apiVersion: v2
     appVersion: 20.6.0
+    created: "2021-01-29T14:14:18.973887004Z"
+    dependencies:
+    - condition: nginx-ldapauth-proxy.enabled
+      name: nginx-ldapauth-proxy
+      repository: https://charts.helm.sh/stable
+      version: 0.1.4
+    description: Kubernetes Web View
+    digest: 6c5542442cc176258361726e254f70e63806f1bef2a2e3c2d40ccedfcf039da5
+    home: https://kube-web-view.readthedocs.io/
+    icon: https://codeberg.org/repo-avatars/1013-79c19f23d3617c23ec9f668a3c5fe0c5
+    keywords:
+    - dashboard
+    - utility
+    - monitoring
+    - kubernetes
+    name: kube-web-view
+    sources:
+    - https://codeberg.org/hjacobs/kube-web-view/
+    urls:
+    - https://github.com/decayofmind/charts/releases/download/kube-web-view-0.0.4/kube-web-view-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 20.6.0
     created: "2021-01-29T13:21:26.829957796Z"
     dependencies:
     - condition: nginx-ldapauth-proxy.enabled
