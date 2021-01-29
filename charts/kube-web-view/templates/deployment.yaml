@@ -18,7 +18,7 @@ spec:
     metadata:
       {{- if .Values.hooks }}
       annotations:
-        checksum/hooks: {{ include (print $.Template.BasePath "/hooks-py.yaml") . | sha256sum }}
+        checksum/hooks: {{ include (print $.Template.BasePath "/hooks-py-cm.yaml") . | sha256sum }}
       {{- end }}
       labels:
         app.kubernetes.io/name: {{ include "kube-web-view.name" . }}
