@@ -1,0 +1,39 @@
+{{- if eq (.Values.targetResources | len) 0 -}}
+{{ fail ".Values.targetResources[] can't be empty!" }}
+{{- end -}}
+---
+kind: CronJob
+{{- if ( ge .Capabilities.KubeVersion.Minor "21" ) }}
+apiVersion: batch/v1
+{{- else }}
+apiVersion: batch/v1beta1
+{{- end }}
+metadata:
+  name: {{ template "rollout-restart.fullnane" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  {{- if .Values.commonAnnotations }}
+  annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
+spec:
+  concurrencyPolicy: Forbid
+  schedule: {{ .Values.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: kubectl
+              image: {{ template "rollout-restart.image" . }}
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command:
+                - kubectl
+                - rollout
+                - restart
+                - --namespace={{ .Release.Namespace }}
+                {{- range .Values.targetResources }}
+                - {{ . | quote }}
+                {{- end }}
+          restartPolicy: Never
+          serviceAccountName: {{ template "rollout-restart.fullname" . }}
+

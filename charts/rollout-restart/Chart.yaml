@@ -1,0 +1,19 @@
+---
+apiVersion: v2
+name: rollout-restart
+description: a CronJob performing rollout restart for deployables. Good for memory leaks.
+version: 1.0.0
+appVersionL: 1.0.0
+maintainers:
+  - email: r.komkov@gmail.com
+    name: Roman Komkov
+dependencies:
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    tags:
+      - bitnami-common
+    version: 1.x.x
+keywords:
+  - utility
+  - cron
+  - restart
