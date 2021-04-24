@@ -1,0 +1,10 @@
+---
+
+image:
+  repository: bitnami/kubectl
+  tag: latest
+  pullPolicy: IfNotPresent
+
+schedule: 0 */2 * * *
+
+targetObjects: []

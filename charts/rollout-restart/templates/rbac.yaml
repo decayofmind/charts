@@ -1,0 +1,41 @@
+{{- if eq (.Values.targetResources | len) 0 -}}
+{{ fail ".Values.targetResources[] can't be empty!" }}
+{{- end -}}
+---
+kind: ServiceAccout
+apiVersion: v1
+metadata:
+  name: {{ template "rollout-restart.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  {{- if .Values.commonAnnotations }}
+  annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ template "rollout-restart.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  {{- if .Values.commonAnnotations }}
+  annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
+rules:
+  - apiGroups:
+      - apps
+      - extensions
+    resources:
+      - deployments
+      - statefullsets
+      - daemonsets
+    resourceNames:
+      {{- range .Values.targetResources }}
+      - {{ . | quote }}
+      {{- end }}
+    verbs:
+      - get
+      - list
+      - patch
+      - watch
