@@ -71,4 +71,27 @@ entries:
     urls:
     - https://github.com/decayofmind/charts/releases/download/kube-web-view-0.0.3/kube-web-view-0.0.3.tgz
     version: 0.0.3
+  rollout-restart:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-04-24T23:09:17.520277722Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: a CronJob performing rollout restart for deployables. Good for memory leaks.
+    digest: 67f359b6ed772a4a92f6d4f3e309df4d8c121f7a473ed77a6017d362d9d1dad2
+    keywords:
+    - utility
+    - cron
+    - restart
+    maintainers:
+    - email: r.komkov@gmail.com
+      name: decayofmind
+    name: rollout-restart
+    urls:
+    - https://github.com/decayofmind/charts/releases/download/rollout-restart-1.0.0/rollout-restart-1.0.0.tgz
+    version: 1.0.0
 generated: "2021-01-29T13:21:26.621315388Z"
