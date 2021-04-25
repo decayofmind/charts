@@ -2,7 +2,7 @@
 {{ fail ".Values.targetResources[] can't be empty!" }}
 {{- end -}}
 ---
-kind: ServiceAccout
+kind: ServiceAccount
 apiVersion: v1
 metadata:
   name: {{ template "rollout-restart.fullname" . }}

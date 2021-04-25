@@ -2,8 +2,8 @@
 apiVersion: v2
 name: rollout-restart
 description: a CronJob performing rollout restart for deployables. Good for memory leaks.
-version: 1.0.0
-appVersion: 1.0.0
+version: 1.0.1
+appVersion: 1.0.1
 maintainers:
   - email: r.komkov@gmail.com
     name: decayofmind
