@@ -73,6 +73,28 @@ entries:
     version: 0.0.3
   rollout-restart:
   - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2021-04-25T11:02:39.775988706Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: a CronJob performing rollout restart for deployables. Good for memory leaks.
+    digest: b3107813158db6b458a35bc2c60e6bb5cc18daf242a238203adea14805d177ab
+    keywords:
+    - utility
+    - cron
+    - restart
+    maintainers:
+    - email: r.komkov@gmail.com
+      name: decayofmind
+    name: rollout-restart
+    urls:
+    - https://github.com/decayofmind/charts/releases/download/rollout-restart-1.0.3/rollout-restart-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     appVersion: 1.0.2
     created: "2021-04-25T06:03:54.8101583Z"
     dependencies:
