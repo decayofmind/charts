@@ -25,14 +25,13 @@ metadata:
 rules:
   - apiGroups:
       - apps
-      - extensions
     resources:
       - deployments
       - statefullsets
       - daemonsets
     resourceNames:
       {{- range .Values.targetResources }}
-      - {{ . | quote }}
+      - {{ (split "/" . )._1 | quote }}
       {{- end }}
     verbs:
       - get
