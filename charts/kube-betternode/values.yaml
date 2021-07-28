@@ -1,0 +1,9 @@
+---
+
+image:
+  repository: ghcr.io/decayofmind/kube-betternode
+  tag: master
+  pullPolicy: Always
+
+schedule: 0 */2 * * *
+tolerance: 1

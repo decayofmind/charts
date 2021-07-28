@@ -1,0 +1,30 @@
+---
+kind: CronJob
+{{- if ( ge .Capabilities.KubeVersion.Minor "21" ) }}
+apiVersion: batch/v1
+{{- else }}
+apiVersion: batch/v1beta1
+{{- end }}
+metadata:
+  name: {{ template "kube-betternode.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  {{- if .Values.commonAnnotations }}
+  annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
+spec:
+  concurrencyPolicy: Forbid
+  schedule: {{ .Values.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: kube-betternode
+              image: {{ template "kube-betternode.image" . }}
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command:
+                - --tolerance={{ .Values.tolerance }}
+          restartPolicy: Never
+          serviceAccountName: {{ template "kube-betternode.fullname" . }}
+
