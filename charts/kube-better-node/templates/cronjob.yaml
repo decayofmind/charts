@@ -24,7 +24,7 @@ spec:
               image: {{ template "kube-betternode.image" . }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               command:
-                - "/kube-betternode"
+                - "/bin/kube-betternode"
               args:
                 - --tolerance={{ .Values.tolerance }}
           restartPolicy: Never
