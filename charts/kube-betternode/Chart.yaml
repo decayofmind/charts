@@ -2,7 +2,7 @@
 apiVersion: v2
 name: kube-betternode
 description: Small tool for finding a better node, based on preferredDuringSchedulingIgnoredDuringExecution
-version: 0.0.2
+version: 0.0.3
 appVersion: master
 maintainers:
   - email: r.komkov@gmail.com

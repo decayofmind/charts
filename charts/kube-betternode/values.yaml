@@ -5,5 +5,5 @@ image:
   tag: master
   pullPolicy: Always
 
-schedule: "*/5 * * * *"
+schedule: "*/2 * * * *"
 tolerance: 1
