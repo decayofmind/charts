@@ -6,7 +6,7 @@ apiVersion: batch/v1
 apiVersion: batch/v1beta1
 {{- end }}
 metadata:
-  name: {{ template "kube-betternode.fullname" . }}
+  name: {{ template "kube-better-node.fullname" . }}
   namespace: {{ .Release.Namespace | quote }}
   labels: {{- include "common.labels.standard" . | nindent 4 }}
   {{- if .Values.commonAnnotations }}
@@ -20,13 +20,13 @@ spec:
       template:
         spec:
           containers:
-            - name: kube-betternode
-              image: {{ template "kube-betternode.image" . }}
+            - name: kube-better-node
+              image: {{ template "kube-better-node.image" . }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               command:
-                - "/bin/kube-betternode"
+                - "/bin/kube-better-node"
               args:
                 - --tolerance={{ .Values.tolerance }}
           restartPolicy: Never
-          serviceAccountName: {{ template "kube-betternode.fullname" . }}
+          serviceAccountName: {{ template "kube-better-node.fullname" . }}
 
