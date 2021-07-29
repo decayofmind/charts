@@ -24,6 +24,29 @@ entries:
     urls:
     - https://github.com/decayofmind/charts/releases/download/hubot-1.0.2/hubot-1.0.2.tgz
     version: 1.0.2
+  kube-better-node:
+  - apiVersion: v2
+    appVersion: master
+    created: "2021-07-29T00:13:46.985394906Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: Small tool for finding a better node, based on preferredDuringSchedulingIgnoredDuringExecution
+    digest: fd7e8532ff6564397ded646ac10268b1b0bc595afe77ab100d4cc4bac210dfa8
+    keywords:
+    - utility
+    - cron
+    - scheduler
+    maintainers:
+    - email: r.komkov@gmail.com
+      name: decayofmind
+    name: kube-better-node
+    urls:
+    - https://github.com/decayofmind/charts/releases/download/kube-better-node-0.0.3/kube-better-node-0.0.3.tgz
+    version: 0.0.3
   kube-betternode:
   - apiVersion: v2
     appVersion: master
