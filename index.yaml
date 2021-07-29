@@ -27,6 +27,28 @@ entries:
   kube-betternode:
   - apiVersion: v2
     appVersion: master
+    created: "2021-07-29T00:00:53.944957236Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: Small tool for finding a better node, based on preferredDuringSchedulingIgnoredDuringExecution
+    digest: ca0195ee84937bc4571d1863d0ef485b24e0246b558d9e54130f7d436ee1dcd3
+    keywords:
+    - utility
+    - cron
+    - scheduler
+    maintainers:
+    - email: r.komkov@gmail.com
+      name: decayofmind
+    name: kube-betternode
+    urls:
+    - https://github.com/decayofmind/charts/releases/download/kube-betternode-0.0.3/kube-betternode-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: master
     created: "2021-07-28T23:46:23.403132294Z"
     dependencies:
     - name: common
