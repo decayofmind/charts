@@ -35,4 +35,3 @@ spec:
                 {{- end }}
           restartPolicy: Never
           serviceAccountName: {{ template "kube-better-node.fullname" . }}
-
