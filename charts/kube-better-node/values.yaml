@@ -2,8 +2,11 @@
 
 image:
   repository: ghcr.io/decayofmind/kube-better-node
-  tag: master
+  tag: v0.0.2
   pullPolicy: Always
 
 schedule: "*/2 * * * *"
 tolerance: 1
+dryRun: false
+extraArgs: []
+# - -v 4
