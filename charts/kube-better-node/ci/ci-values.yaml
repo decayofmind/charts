@@ -1,4 +1,6 @@
 ---
 
-targetResources:
-  - deployment/resource
+tolerance: 1
+dryRun: true
+extraArgs:
+  - -v 4
